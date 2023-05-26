@@ -1,11 +1,11 @@
 <table class="table is-fullwidth">
   <thead>
     <tr>
+      <th>Range</th>
       <th>Mountain</th>
       <th>Latitude</th>
       <th>Longitude</th>
       <th>Duration</th>
-      <th>Range</th>
       <th>Category</th>
       <th>Effort Level</th>
       <th>Actions</th>
@@ -15,6 +15,9 @@
   <tbody>
     {{#each collection.trails}}
       <tr>
+        <td>
+          {{range}}
+        </td>
         <td>
           {{mountain}}
         </td>
@@ -26,9 +29,6 @@
         </td>
         <td>
           {{duration}}
-        </td>
-        <td>
-          {{range}}
         </td>
         <td>
           {{category}}

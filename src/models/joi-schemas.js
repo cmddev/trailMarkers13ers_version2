@@ -5,9 +5,9 @@ export const IdSpec = Joi.alternatives().try(Joi.string(), Joi.object()).descrip
 export const UserCredentialsSpec = Joi.object()
   .keys({
     email: Joi.string().email({minDomainSegments: 2}).example("homer@simpson.com").required(),
-    // password: Joi.string().example("secret").required(),
-    password: Joi.string().pattern(/^[a-zA-Z0-9]{8,30}$/).required(),
-    password_confirmation: Joi.any().valid(Joi.ref(password)).required().options({ language: { any: { allowOnly: "must match password" } } })
+    password: Joi.string().example("secret").required(),
+    // password: Joi.string().pattern(/^[a-zA-Z0-9]{8,30}$/).required(),
+    // password_confirmation: Joi.any().valid(Joi.ref(password)).required().options({ language: { any: { allowOnly: "must match password" } } })
   })
   .label("UserCredentials");
 
