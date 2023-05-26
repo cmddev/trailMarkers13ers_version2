@@ -6,6 +6,7 @@ const trailSchema = new Schema({
   mountain: String,
   latitude: Number,
   longitude: Number,
+  duration: Number,
   range: String,
   category: String,
   effort: String,
