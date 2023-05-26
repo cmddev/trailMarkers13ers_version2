@@ -83,6 +83,9 @@ export const collectionController = {
       const collection = await db.collectionStore.getCollectionById(request.params.id);
       await db.imageStore.deleteImage(collection.imgid);
       collection.img = undefined;
+      collection.imgid = undefined;
+      db.collectionStore.updateCollection(collection);
+      return h.redirect(`/collection/${collection._id}`);
     }
   }
 };
