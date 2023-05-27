@@ -6,6 +6,7 @@
       <div class="field-body">
         <div class="field">
           <label class="label">Range</label>
+          <input class="input" type="text" name="range" value="{{trail.range}}">
           <div class="control">
             <div class="select is primary">
               <select name="range" id="range">
@@ -21,7 +22,7 @@
               </select>
             </div>
           </div>
-          {{!-- <input class="input" type="text" name="range" value="{{trail.range}}"> --}}
+          
         </div>
         <div class="field">
           <label class="label">Mountain Name</label>
@@ -74,6 +75,14 @@
               </select>
             </div>
           </div>
+        </div>
+        <div class="field">
+          <label class="label">Rating</label>
+          <input class="input" type="number" step="1" min="1" max="5" placeholder="1" name="trailRating" , value="{{trail.trailRating}}">
+        </div>
+        <div class="field">
+          <label class="label">Leave a Trail Review</label>
+          <input class="input" type="text" placeholder="Review Trail" name="reviewTrail", value=""{{trail.reviewTrail}}>
         </div>
       </div>
     </div>
