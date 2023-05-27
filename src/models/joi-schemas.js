@@ -31,11 +31,12 @@ export const UserArray = Joi.array().items(UserSpecPlus).label("UserArray");
 export const TrailSpec = Joi.object()
 // need to add sanitization and validation of fields here.
   .keys({
+        range: Joi.string().required().example("Front Range"),
         mountain: Joi.string().required().example("Mt Snowmass"),
         latitude: Joi.number().allow("").optional().example(40.01),
         longitude: Joi.number().allow("").optional().example(102.01),
         duration: Joi.number().allow("").optional().example(12),
-        range: Joi.string().required().example("Front Range"),
+        elevation: Joi.number().allow("").optional().example("13000"),
         category: Joi.string().required().example("Class 1"),
         effort: Joi.string().required().example("Medium"),
         images: Joi.array().items(Joi.object({

@@ -33,11 +33,12 @@ export const collectionController = {
         // title: request.payload.title,
         // artist: request.payload.artist,
         // duration: Number(request.payload.duration),
+        range: String(request.payload.range),
         mountain: request.payload.mountain,
         latitude: Number(request.payload.latitude),
         longitude: Number(request.payload.longitude),
         duration: Number(request.payload.duration),
-        range: request.payload.range,
+        elevation: Number(request.payload.elevation),
         category: request.payload.category,
         effort: request.payload.effort,
       };

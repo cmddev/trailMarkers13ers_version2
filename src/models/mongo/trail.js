@@ -3,11 +3,12 @@ import Mongoose from "mongoose";
 const { Schema } = Mongoose;
 
 const trailSchema = new Schema({
+  range: String,
   mountain: String,
   latitude: Number,
   longitude: Number,
   duration: Number,
-  range: String,
+  elevation: Number,  
   category: String,
   effort: String,
   images: [

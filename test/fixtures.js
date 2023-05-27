@@ -88,6 +88,7 @@ export const testTrails = [
     "latitude": "40.2486",
     "longitude": "105.6050",
     "duration": "7.5",
+    "eleation": "13000",
     "range": "Front Range",
     "category": "Class 3",
     "effort": "Hard"

@@ -41,11 +41,12 @@ export const trailMongoStore = {
 
   async updateTrail(trail, updatedTrail) {
     const trailDoc = await Trail.findOne({ _id: trail._id });
+    trailDoc.range = updatedTrail.range;
     trailDoc.mountain = updatedTrail.mountain;
     trailDoc.latitude = updatedTrail.latitude;
     trailDoc.longitude = updatedTrail.longitude;
     trailDoc.duration = updatedTrail.duration;
-    trailDoc.range = updatedTrail.range;
+    trailDoc.elevation = updatedTrail.elevation;
     trailDoc.category = updatedTrail.category;
     trailDoc.effort = updatedTrail.effort;
     trailDoc.images = updatedTrail.images;

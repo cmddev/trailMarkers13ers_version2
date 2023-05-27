@@ -40,11 +40,12 @@ export const trailMemStore = {
   },
 
   async updateTrail(trail, updatedTrail) {
+    trail.range = updatedTrail.range;
     trail.mountain = updatedTrail.mountain;
     trail.latitude = updatedTrail.latitude;
     trail.longitude = updatedTrail.longitude;
     trail.duration = updatedTrail.duration;
-    trail.range = updatedTrail.range;
+    trail.elevation = updatedTrail.elevation;
     trail.category = updatedTrail.category;
     trail.effort = updatedTrail.effort;
   },

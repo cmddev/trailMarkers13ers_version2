@@ -1,11 +1,12 @@
 {
   "trails": [
     {
+      "range": "Elks Range",
       "mountain": "Mount Snowmass",
       "latitude": "12",
       "longitude": "111",
       "duration": "1",
-      "range": "Elks Range",
+      "elevation": "13000",
       "category": "Class 1",
       "effort": "Easy"
     }

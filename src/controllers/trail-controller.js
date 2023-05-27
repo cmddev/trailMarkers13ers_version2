@@ -12,7 +12,7 @@ export const trailController = {
       const collection = await db.collectionStore.getCollectionById(request.params.id);
       const trail = await db.trailStore.getTrailById(request.params.trailid);
       const viewData = {
-        title: "Edit Song",
+        title: "Edit Trail",
         collection: collection,
         trail: trail,
       };
@@ -36,11 +36,12 @@ export const trailController = {
       console.log(request.payload);
       // const trail = await db.trailStore.getTrailById(request.params.trailid);
       const newTrail = {
+        range: String(request.payload.range),
         mountain: request.payload.mountain,
         latitude: Number(request.payload.latitude),
         longitude: Number(request.payload.longitude),
         duration: Number(request.payload.duration),
-        range: request.payload.range,
+        elevation: Number(reqeust.payload.elevation),
         category: request.payload.category,
         effort: request.payload.effort,
       };
