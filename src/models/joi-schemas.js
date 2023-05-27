@@ -4,21 +4,29 @@ export const IdSpec = Joi.alternatives().try(Joi.string(), Joi.object()).descrip
 
 export const UserCredentialsSpec = Joi.object()
   .keys({
-    email: Joi.string().email({minDomainSegments: 2}).example("homer@simpson.com").required(),
-    password: Joi.string().example("secret").required(),
-    // password: Joi.string().pattern(/^[a-zA-Z0-9]{8,30}$/).required(),
-    // password_confirmation: Joi.any().valid(Joi.ref(password)).required().options({ language: { any: { allowOnly: "must match password" } } })
+    email: Joi.string().email({minDomainSegments: 2}).example("homer@simpson.com").required().messages({
+      "string.empty": "Email cannot be empty",
+      "string.email": "Email needs to be in the form of xyz@domain.com"
+    }),
+    password: Joi.string().min(6).max(20).regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/).required().messages({
+      "string.empty": "Password cannot be empty",
+      "string.min": "Password must be minimum 6 characters",
+      "string.max": "Password must not exceed 20 characters",
+      "object.regex": "Password must contain a lower case, upper case, number and special character"
+    }),
+    // confirmPassword: Joi.any().valid(Joi.ref("password")).required(),
   })
   .label("UserCredentials");
 
 export const UserSpec = UserCredentialsSpec.keys({
-  // firstName: Joi.string().example("Homer").max(35).regex(/^[A-Z][a-z]{2,}$/).required().messages({"object.regex": "First Name should start with a capital"}),
-  // /^[a-z ,.'-]+$/i
-  // /^([a-zA-Z]{2,}\s[a-zA-Z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{1,})?)
-  firstName: Joi.string().example("Homer").min(2).max(15).required().messages({
-    "string.min": "firstName should have a minimum length of {#limit}"
+  firstName: Joi.string().example("Homer").min(1).max(30).regex(/^[a-z ,.'-]+$/i).required().messages({
+    "string.empty": "First Name cannot be empty",
+    "string.max": "First Name cannot exceed 30 characters",
 }),
-  lastName: Joi.string().example("Simpson").max(35).regex(/^[A-Z][a-z]{2,}$/).required(),
+  lastName: Joi.string().example("Simpson").min(1).max(30).regex(/^[a-z ,.'-]+$/i).required().messages({
+    "string.empty": "Last Name cannot be empty",
+    "string.max": "Last Name cannot exceed 30 characters",
+  }),
 }).label("UserDetails");
 
 export const UserSpecPlus = UserSpec.keys({
