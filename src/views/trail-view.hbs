@@ -27,7 +27,7 @@
           <label class="label">Mountain Name</label>
           <input class="input" type="text" name="mountain" , value="{{trail.mountain}}">
         </div>
-        <div class="field">
+        {{!-- <div class="field">
           <label class="label">Latitude</label>
           <input class="input" type="number" step="0.0000001" maxlength="10" min="-90.0000000" max="90.0000000"
             name="latitude" value="{{trail.latitude}}">
@@ -36,7 +36,7 @@
           <label class="label">Longitude</label>
           <input class="input" type="number" step="0.0000001" maxlength="10" min="-180.0000000" max="180.0000000"
             name="longitude" value="{{trail.longitude}}">
-        </div>
+        </div> --}}
         <div class="field">
           <label class="label">Duration</label>
           <input class="input" type="number" name="duration" , value="{{trail.duration}}">
@@ -78,5 +78,5 @@
       </div>
     </div>
     <button class="button is-primary">Update Trail</button>
-    <button calss="button is-primary">Cancel</button>
+    <button class="button is-secondary">Cancel</button>
 </form>

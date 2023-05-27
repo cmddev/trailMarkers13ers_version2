@@ -38,16 +38,13 @@ export const mozart = {
 };
 
 export const concerto = {
-  // "title": "Violin Concerto No. 3",
-  // "artist": "Mozart",
-  // "duration": 15,
   "mountain": "Mount Meeker",
-  "latitude": "40.2486",
-  "longitude": "105.6050",
   "duration": "7.5",
   "range": "Front Range",
   "category": "Class 3",
-  "effort": "Hard"
+  "effort": "Hard",
+  "trailRating": "2",
+  "reviewTrail": "I didn't think i'd have to walk all the way"
 };
 
 
@@ -68,47 +65,38 @@ export const testCollections = [
 ];
 
 export const testTrails = [
-  // {
-  //   "title": "Piano Sonata No. 3",
-  //   "artist": "Beethoven",
-  //   "duration": 5
-  // },
-  // {
-  //   "title": "Piano Sonata No. 7",
-  //   "artist": "Beethoven",
-  //   "duration": 6
-  // },
-  // {
-  //   "title": "Piano Sonata No. 10",
-  //   "artist": "Beethoven",
-  //   "duration": 4
-  // },
   {
     "mountain": "Mount Meeker",
-    "latitude": "40.2486",
-    "longitude": "105.6050",
+    // "latitude": "40.2486",
+    // "longitude": "105.6050",
     "duration": "7.5",
     "eleation": "13000",
     "range": "Front Range",
     "category": "Class 3",
-    "effort": "Hard"
+    "effort": "Hard",
+    "trailRating": "2",
+    "reviewTrail": "I didn't think i'd have to walk all the way"
   },
   {
     "mountain": "Pacific Peak",
-    "latitude": "34.4230",
-    "longitude": "106.1234",
+    // "latitude": "34.4230",
+    // "longitude": "106.1234",
     "duration": "6",
     "range": "Tenmile Range",
     "category": "Class 2",
-    "effort": "Medium"
+    "effort": "Medium",
+    "trailRating": "2",
+    "reviewTrail": "I didn't think i'd have to walk all the way"
   },
   {
     "mountain": "Electric Pass Peak",
-    "latitude": "39.5114",
-    "longitude": "106.1121",
+    // "latitude": "39.5114",
+    // "longitude": "106.1121",
     "duration": "5",
     "range": "Elks Range",
     "category": "Class 1",
-    "effort": "Easy"
+    "effort": "Easy",
+    "trailRating": "2",
+    "reviewTrail": "I didn't think i'd have to walk all the way"
   }
 ];

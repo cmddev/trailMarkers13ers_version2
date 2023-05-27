@@ -43,13 +43,15 @@ export const trailMongoStore = {
     const trailDoc = await Trail.findOne({ _id: trail._id });
     trailDoc.range = updatedTrail.range;
     trailDoc.mountain = updatedTrail.mountain;
-    trailDoc.latitude = updatedTrail.latitude;
-    trailDoc.longitude = updatedTrail.longitude;
+    // trailDoc.latitude = updatedTrail.latitude;
+    // trailDoc.longitude = updatedTrail.longitude;
     trailDoc.duration = updatedTrail.duration;
     trailDoc.elevation = updatedTrail.elevation;
     trailDoc.category = updatedTrail.category;
     trailDoc.effort = updatedTrail.effort;
+    trailDoc.trailRating = updatedTrail.trailRating;
     trailDoc.images = updatedTrail.images;
+    trailDoc.reviewTrail = updatedTrail.reviewTrail;
     await trailDoc.save();
   },
 };

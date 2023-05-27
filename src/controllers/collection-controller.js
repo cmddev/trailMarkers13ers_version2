@@ -30,17 +30,16 @@ export const collectionController = {
     handler: async function (request, h) {
       const collection = await db.collectionStore.getCollectionById(request.params.id);
       const newTrail = {
-        // title: request.payload.title,
-        // artist: request.payload.artist,
-        // duration: Number(request.payload.duration),
         range: String(request.payload.range),
         mountain: request.payload.mountain,
-        latitude: Number(request.payload.latitude),
-        longitude: Number(request.payload.longitude),
+        // latitude: Number(request.payload.latitude),
+        // longitude: Number(request.payload.longitude),
         duration: Number(request.payload.duration),
         elevation: Number(request.payload.elevation),
         category: request.payload.category,
         effort: request.payload.effort,
+        trailRating: Number(request.payload.trailRating),
+        reviewTrail: String(request.payload.reviewTrail),
       };
       await db.trailStore.addTrail(collection._id, newTrail);
       return h.redirect(`/collection/${collection._id}`);

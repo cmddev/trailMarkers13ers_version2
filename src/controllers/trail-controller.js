@@ -38,12 +38,14 @@ export const trailController = {
       const newTrail = {
         range: String(request.payload.range),
         mountain: request.payload.mountain,
-        latitude: Number(request.payload.latitude),
-        longitude: Number(request.payload.longitude),
+        // latitude: Number(request.payload.latitude),
+        // longitude: Number(request.payload.longitude),
         duration: Number(request.payload.duration),
         elevation: Number(reqeust.payload.elevation),
         category: request.payload.category,
         effort: request.payload.effort,
+        trailRating: Number(request.payload.trailRating),
+        reviewTrail: String(request.payload.reviewTrail)
       };
       await db.trailStore.updateTrail(trail, newTrail);
       // await db.trailStore.updateTrail(request.params.trailid, newTrail);

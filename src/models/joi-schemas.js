@@ -41,12 +41,14 @@ export const TrailSpec = Joi.object()
   .keys({
         range: Joi.string().required().example("Front Range"),
         mountain: Joi.string().required().example("Mt Snowmass"),
-        latitude: Joi.number().allow("").optional().example(40.01),
-        longitude: Joi.number().allow("").optional().example(102.01),
+        // latitude: Joi.number().allow("").optional().example(40.01),
+        // longitude: Joi.number().allow("").optional().example(102.01),
         duration: Joi.number().allow("").optional().example(12),
         elevation: Joi.number().allow("").optional().example("13000"),
         category: Joi.string().required().example("Class 1"),
         effort: Joi.string().required().example("Medium"),
+        trailRating: Joi.number().required().example("2"),
+        reviewTrail: Joi.string().optional().example("I didn't think i'd have to walk so far"),
         images: Joi.array().items(Joi.object({
           _id: IdSpec,
           img: Joi.string(),

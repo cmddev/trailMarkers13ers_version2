@@ -48,5 +48,6 @@ export const trailMemStore = {
     trail.elevation = updatedTrail.elevation;
     trail.category = updatedTrail.category;
     trail.effort = updatedTrail.effort;
+    trail.reviewTrail = updatedTrail.reviewTrail;
   },
 };

@@ -3,12 +3,12 @@
     {
       "range": "Elks Range",
       "mountain": "Mount Snowmass",
-      "latitude": "12",
-      "longitude": "111",
       "duration": "1",
       "elevation": "13000",
       "category": "Class 1",
-      "effort": "Easy"
+      "effort": "Easy",
+      "trailRating": "2",
+      "reviewTrail": "Muddy Conditions"
     }
   ]
 }
