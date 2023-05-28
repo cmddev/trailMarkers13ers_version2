@@ -61,10 +61,13 @@
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-import": "^2.27.5",
     "mocha": "^10.2.0",
+    "multiple-cucumber-html-reporter": "^3.4.0",
     "nodemon": "^2.0.20",
     "prettier": "^2.8.3"
   },
   "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false,
+    "stepDefinitions": "cypress/stepDefinitions",
     "cucumberJson": {
       "generate": true,
       "outputFolder": "cypress/cucumber-json",
