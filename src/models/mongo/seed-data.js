@@ -5,19 +5,22 @@ export const seedData = {
         firstName: "Homer",
         lastName: "Simpson",
         email: "homer@simpson.com",
-        password: "SuperSecret1!"
+        password: "$2a$10$tlHzA4yAM.h6qhrf1PNrHeVOhANyHXpuNmmoewc2Nzga7m4UOD01."
+        // password: "SuperSecret1!"
       },
       marge: {
         firstName: "Marge",
         lastName: "Simpson",
         email: "marge@simpson.com",
-        password: "SuperSecret1!"
+        password: "$2a$10$39minxp6E/Q6/gVMXhVjQedOewnPLNPdSmj3Npdg5OphkV8mH2BIC",
+        // password: "SuperSecret1!"
       },
       bart: {
         firstName: "Bart",
         lastName: "Simpson",
         email: "bart@simpson.com",
-        password: "SuperSecret1!"
+        password: "$2a$10$IHVM27gsCRt27uzrmLsAjuurc/uCftyvBcz.pqxSJZLfIwYHISFSe",
+        // password: "SuperSecret1!"
       }
     },
     collections: {
