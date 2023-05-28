@@ -104,8 +104,7 @@ async function init() {
   });
 
   server.auth.strategy("github-oauth", "bell", bellAuthOptions);
-  // server.auth.default("session");
-
+  
   db.init("mongo");
   server.route(webRoutes);
   server.route(apiRoutes);

@@ -85,6 +85,13 @@ export const accountsController = {
     },
   },
   
+  showNoticeboard: {
+    auth: false,
+    handler: function (request, h) {
+      return h.view("noticeboard-view", { title: "Welcome to the trailMark Noticeboard" });
+    },
+  },
+
   logout: {
     handler: function (request, h) {
       request.cookieAuth.clear();

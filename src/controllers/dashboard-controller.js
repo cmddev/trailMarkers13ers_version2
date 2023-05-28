@@ -52,11 +52,6 @@ export const dashboardController = {
     },
   },
 
-  // deleteCollection: {
-  //   handler: async function (request, h) {
-  //     const collection = await db.collectionStore.getCollectionById(request.params.id);
-  //     await db.collectionStore.deleteCollectionById(collection._id);
-  //     return h.redirect("/dashboard");
-  //   },
-  // },
+  // adding a public collection
+
 };
