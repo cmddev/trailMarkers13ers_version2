@@ -65,6 +65,26 @@ export const accountsController = {
       return h.redirect("/dashboard");
     },
   },
+
+  loginoauth: {
+    auth: "github-oauth",
+    handler: async function (request, h) {
+      if (request.auth.isAuthenticated) {
+        console.log(request.auth.credentials)
+        const githubName = request.auth.credentials.profile.displayName.split(" ");
+        const newUser = {
+          firstName: githubName[0],
+          lastName: githubName[1],
+          email: request.auth.credentials.profile.email
+        };
+        const user = await db.userStore.addUser(newUser);
+        request.cookieAuth.set({id: user._id});
+        return h.redirect("/dashboard");
+      }
+      return h.redirect("/");
+    },
+  },
+  
   logout: {
     handler: function (request, h) {
       request.cookieAuth.clear();

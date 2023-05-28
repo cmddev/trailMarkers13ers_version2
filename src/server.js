@@ -9,11 +9,20 @@ import HapiSwagger from "hapi-swagger";
 import { fileURLToPath } from "url";
 import Handlebars from "handlebars";
 import jwt from "hapi-auth-jwt2";
+import Bell from "@hapi/bell";
 import { webRoutes } from "./web-routes.js";
 import { db } from "./models/db.js";
 import { accountsController } from "./controllers/accounts-controller.js";
 import { apiRoutes } from "./api-routes.js";
 import { validate } from "./api/jwt-utils.js";
+
+const bellAuthOptions = {
+  provider: "github",
+  password: "github-encryption-password-secure",
+  clientId: "c40b3e855268f728bbb2",
+  clientSecret: "6973b3202c653e2bd6814f84a6f6b1516c028bbf",
+  isSecure: false // needs to be true in production.
+};
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -27,7 +36,7 @@ if (result.error) {
 const swaggerOptions = {
   info: {
     title: "TrailMark API",
-    version: "0.1"
+    version: "0.2"
   },
   securityDefinitions: {
     jwt: {
@@ -45,12 +54,14 @@ async function init() {
   // });
   const server = Hapi.server({
     port: process.env.PORT || 3000,
+    routes: { cors: true },
   });
 
   await server.register(Inert);
   await server.register(Vision);
   await server.register(Cookie);
   await server.register(jwt);
+  await server.register(Bell);
 
   await server.register([
     Inert,
@@ -91,6 +102,9 @@ async function init() {
     validate: validate,
     verifyOptions: { algorithms: ["HS256"] }
   });
+
+  server.auth.strategy("github-oauth", "bell", bellAuthOptions);
+  // server.auth.default("session");
 
   db.init("mongo");
   server.route(webRoutes);
