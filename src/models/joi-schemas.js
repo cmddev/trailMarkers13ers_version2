@@ -41,8 +41,6 @@ export const TrailSpec = Joi.object()
   .keys({
         range: Joi.string().required().example("Front Range"),
         mountain: Joi.string().required().example("Mt Snowmass"),
-        // latitude: Joi.number().allow("").optional().example(40.01),
-        // longitude: Joi.number().allow("").optional().example(102.01),
         duration: Joi.number().allow("").optional().example(12),
         elevation: Joi.number().allow("").optional().example("13000"),
         category: Joi.string().required().example("Class 1"),
@@ -65,6 +63,33 @@ export const TrailSpecPlus = TrailSpec.keys({
 
 export const TrailArraySpec = Joi.array().items(TrailSpecPlus).label("TrailArray");
 
+export const PublicTrailSpec = Joi.object()
+// need to add sanitization and validation of fields here.
+  .keys({
+        publicRange: Joi.string().required().example("Front Range"),
+        publicMountain: Joi.string().required().example("Mt Snowmass"),
+        publicDuration: Joi.number().allow("").optional().example(12),
+        publicElevation: Joi.number().allow("").optional().example("13000"),
+        publicCategory: Joi.string().required().example("Class 1"),
+        publicEffort: Joi.string().required().example("Medium"),
+        publicTrailRating: Joi.number().required().example("2"),
+        publicReviewTrail: Joi.string().optional().example("I didn't think i'd have to walk so far"),
+      //   images: Joi.array().items(Joi.object({
+      //     _id: IdSpec,
+      //     img: Joi.string(),
+      //     imgid: Joi.string(),
+      // })),
+    publicCollectionid: IdSpec,
+  })
+  .label("PublicTrail");
+
+export const PublicTrailSpecPlus = PublicTrailSpec.keys({
+  _id: IdSpec,
+  __v: Joi.number(),
+}).label("PublicTrailPlus");
+
+export const PublicTrailArraySpec = Joi.array().items(PublicTrailSpecPlus).label("PublicTrailArray");
+
 export const CollectionSpec = Joi.object()
   .keys({
     title: Joi.string().required().example("Beethoven Sonatas"),
@@ -81,6 +106,23 @@ export const CollectionSpecPlus = CollectionSpec.keys({
 }).label("CollectionSpec");
 
 export const CollectionArraySpec = Joi.array().items(CollectionSpecPlus).label("CollectionArray");
+
+export const publicCollectionSpec = Joi.object()
+  .keys({
+    title: Joi.string().required().example("Beethoven Sonatas"),
+    userid: IdSpec,
+    publicTrails: PublicTrailArraySpec
+    // publicImg: Joi.string(),
+    // imgid: Joi.string()
+  })
+  .label("publicCollection");
+
+export const publicCollectionSpecPlus = publicCollectionSpec.keys({
+  _id: IdSpec,
+  __v: Joi.number(),
+}).label("publicCollectionSpec");
+
+export const publicCollectionArraySpec = Joi.array().items(publicCollectionSpecPlus).label("publicCollectionArray");
 
 export const JwtAuth = Joi.object()
   .keys({

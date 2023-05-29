@@ -3,18 +3,22 @@
  * @Author: Caroline Daly
  */
 
-import { CollectionSpec } from "../models/joi-schemas.js";
+import { CollectionSpec, publicCollectionSpec } from "../models/joi-schemas.js";
 import { db } from "../models/db.js";
+// import { publicCollectionSpec } from "../models/joi-schemas.js";
+
 
 export const dashboardController = {
   index: {
     handler: async function (request, h) {
       const loggedInUser = request.auth.credentials;
       const collections = await db.collectionStore.getUserCollections(loggedInUser._id);
+      const publicCollections = await db.publicCollectionStore.getUserPublicCollections(loggedInUser._id);
       const viewData = {
         title: "TrailMark Dashboard",
         user: loggedInUser,
         collections: collections,
+        publicCollections: publicCollections,
       };
       return h.view("dashboard-view", viewData);
     },
@@ -39,6 +43,25 @@ export const dashboardController = {
     },
   },
 
+  addPublicCollection: {
+    validate: {
+      payload: publicCollectionSpec,
+      options: { abortEarly: false },
+      failAction: function (request, h, error) {
+        return h.view("dashboard-view", { title: "Add Public Collection error", errors: error.details }).takeover().code(400);
+      },
+    },
+    handler: async function (request, h) {
+      const loggedInUser = request.auth.credentials;
+      const newPublicCollection = {
+        userid: loggedInUser._id,
+        title: request.payload.title,
+      };
+      await db.publicCollectionStore.addPublicCollection(newPublicCollection);
+      return h.redirect("/dashboard");
+    },
+  },
+
   deleteCollection: {
     handler: async function (request, h) {
       const collection = await db.collectionStore.getCollectionById(request.params.id);
@@ -52,6 +75,16 @@ export const dashboardController = {
     },
   },
 
-  // adding a public collection
-
+  deletePublicCollection: {
+    handler: async function (request, h) {
+      const publicCollection = await db.publicCollectionStore.getPublicCollectionById(request.params.id);
+      let publicCollectionTrails =[];
+      publicCollectionTrails = await db.publicTrailStore.getPublicTrailsByPublicCollectionId(publicCollection._id);
+      for (let i = 0; i < publicCollectionTrails.length; i += 1) {
+        await db.publicTrailStore.deletePublicTrail(publicCollectionTrails[i]);
+      }
+      await db.publicCollectionStore.deletePublicCollectionById(publicCollection._id);
+      return h.redirect("/dashboard");
+    },
+  },
 };

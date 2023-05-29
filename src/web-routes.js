@@ -21,6 +21,8 @@ export const webRoutes = [
   { method: "GET", path: "/dashboard", config: dashboardController.index },
   { method: "POST", path: "/dashboard/addcollection", config: dashboardController.addCollection },
   { method: "GET", path: "/dashboard/deletecollection/{id}", config: dashboardController.deleteCollection },
+  { method: "POST", path: "/dashboard/addPublicCollection", config: dashboardController.addPublicCollection },
+  // { method: "GET", path: "/dashboard/deletepubliccollection/{id}", config: dashboardController.deletePublicCollection },
 
   { method: "GET", path: "/collection/{id}", config: collectionController.index },
   { method: "POST", path: "/collection/{id}/addtrail", config: collectionController.addTrail },

@@ -4,11 +4,14 @@
     <thead>
     <th>TrailMark Notice Board</th>
     </thead>
-    <tbody>
-        <tr>
-            <td> Days of Rain Per year: 152</td>
-            <td> Best Months to visit: Sept - October </td>
-            <td> Current Covid Restrictions: Mask + Vaccine Mandate </td>
-        </tr>
-    </tbody>
-</table>
+
+<section class="section">
+  <h1>Hi {{user.firstName}}, welcome to your trail dashboard</h1>
+  <br>
+  {{> list-collections}}
+  {{> add-collection}}
+  <br>
+  <br>
+    {{> list-publicCollections}}
+  {{> add-publicCollection}}
+</section>

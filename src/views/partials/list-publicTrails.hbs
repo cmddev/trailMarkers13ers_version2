@@ -1,0 +1,63 @@
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>Range</th>
+      <th>Mountain</th>
+      <th>Duration</th>
+      <th>Elevation</th>
+      <th>Category</th>
+      <th>Effort Level</th>
+      <th>Review</th>
+      <th>Rating</th>
+      <th>Update Trail</th>
+      <th>Delete Trail</th>
+      <th>Favourite Trail</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each publicCollection.publicTrails}}
+    <tr>
+      <td>
+        {{publicRange}}
+      </td>
+      <td>
+        {{publicMountain}}
+      </td>
+      <td>
+        {{publicDuration}}
+      </td>
+      <td>
+        {{publicElevation}}
+      </td>
+      <td>
+        {{publicCategory}}
+      </td>
+      <td>
+        {{publicEffort}}
+      </td>
+      <td>
+        {{publicReviewTrail}}
+      </td>
+      <td>
+        {{publicTrailRating}}
+      </td>
+      <td>
+        <a href="/oublicTrail/{{../publicCollection._id}}/editpublictrail/{{_id}}" class="ui icon button">
+          <i class="fas fa-edit"></i>
+        </a>
+      </td>
+      <td>
+        <a href="/publicCollection/{{../publicCollection._id}}/deletepublictrail/{{_id}}" class="ui icon button">
+          <i class="fas fa-trash"></i>
+        </a>
+      </td>
+      <td>
+        <a href="/publicCollection/{{../collection._id}}/deletepublictrail/{{_id}}" class="ui icon button">
+          <i class="fas fa-heart"></i>
+        </a>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
