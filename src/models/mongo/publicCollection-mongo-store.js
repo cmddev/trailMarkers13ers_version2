@@ -7,11 +7,11 @@ export const publicCollectionMongoStore = {
     return publicCollections;
   },
 
-  async getpublicCollectionById(id) {
+  async getPublicCollectionById(id) {
     if (id) {
       const publicCollection = await PublicCollection.findOne({ _id: id }).lean();
       if (publicCollection) {
-        publicCollection.trails = await publicTrailMongoStore.getPublicTrailsByCollectionId(publicCollection._id);
+        publicCollection.trails = await publicTrailMongoStore.getPublicTrailsByPublicCollectionId(publicCollection._id);
       }
       return publicCollection;
     }

@@ -52,38 +52,38 @@ export const publicCollectionController = {
     },
   },
 
-  uploadPublicImage: {
-    handler: async function(request, h) {
-      try {
-        const publicCollection = await db.publicCollectionStore.getPublicCollectionById(request.params.id);
-        const publicfile = request.payload.publicImagefile;
-        if (Object.keys(publicfile).length > 0) {
-          const url = await publicImageStore.uploadPublicImage(request.payload.publicImagefile);
-          publicCollection.img = url;
-          db.publicCollectionStore.updatePublicCollection(publicCollection);
-        }
-        return h.redirect(`/publicCollection/${publicCollection._id}`);
-      } catch (err) {
-        console.log(err);
-        return h.redirect(`/publicCollection/${publicCollection._id}`);
-      }
-    },
-    payload: {
-      multipart: true,
-      output: "data",
-      maxBytes: 209715200,
-      parse: true
-    }
-  },
+  // uploadPublicImage: {
+  //   handler: async function(request, h) {
+  //     try {
+  //       const publicCollection = await db.publicCollectionStore.getPublicCollectionById(request.params.id);
+  //       const publicfile = request.payload.publicImagefile;
+  //       if (Object.keys(publicfile).length > 0) {
+  //         const url = await publicImageStore.uploadPublicImage(request.payload.publicImagefile);
+  //         publicCollection.img = url;
+  //         db.publicCollectionStore.updatePublicCollection(publicCollection);
+  //       }
+  //       return h.redirect(`/publicCollection/${publicCollection._id}`);
+  //     } catch (err) {
+  //       console.log(err);
+  //       return h.redirect(`/publicCollection/${publicCollection._id}`);
+  //     }
+  //   },
+  //   payload: {
+  //     multipart: true,
+  //     output: "data",
+  //     maxBytes: 209715200,
+  //     parse: true
+  //   }
+  // },
 
-  deletePublicImage: {
-    handler: async function( request, h) {
-      const publicCollection = await db.publicCollectionStore.getPublicCollectionById(request.params.id);
-      await db.publicImageStore.deletePublicImage(publicCollection.imgid);
-      publicCollection.img = undefined;
-      publicCollection.imgid = undefined;
-      db.publicCollectionStore.updatePublicCollection(publicCollection);
-      return h.redirect(`/publicCollection/${publicCollection._id}`);
-    }
-  }
+  // deletePublicImage: {
+  //   handler: async function( request, h) {
+  //     const publicCollection = await db.publicCollectionStore.getPublicCollectionById(request.params.id);
+  //     await db.publicImageStore.deletePublicImage(publicCollection.imgid);
+  //     publicCollection.img = undefined;
+  //     publicCollection.imgid = undefined;
+  //     db.publicCollectionStore.updatePublicCollection(publicCollection);
+  //     return h.redirect(`/publicCollection/${publicCollection._id}`);
+  //   }
+  // }
 };

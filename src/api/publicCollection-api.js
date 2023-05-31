@@ -28,7 +28,7 @@ export const publicCollectionApi = {
     },
     async handler(request) {
       try {
-        const publicCollection = await db.publicCollectionStore.getpublicCollectionById(request.params.id);
+        const publicCollection = await db.publicCollectionStore.getPublicCollectionById(request.params.id);
         if (!publicCollection) {
           return Boom.notFound("No public collection with this id");
         }
@@ -73,7 +73,7 @@ export const publicCollectionApi = {
     },
     handler: async function (request, h) {
       try {
-        const publicCollection = await db.publicCollectionStore.getpublicCollectionById(request.params.id);
+        const publicCollection = await db.publicCollectionStore.getPublicCollectionById(request.params.id);
         if (!publicCollection) {
           return Boom.notFound("No public collection with this id");
         }

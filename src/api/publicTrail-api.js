@@ -41,7 +41,7 @@ export const publicTrailApi = {
     description: "Find a Trail",
     notes: "Returns a trail",
     validate: { params: { id: IdSpec }, failAction: validationError },
-    response: { schema: TrailSpecPlus, failAction: validationError },
+    response: { schema: PublicTrailSpecPlus, failAction: validationError },
   },
 
   create: {
