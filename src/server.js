@@ -19,8 +19,8 @@ import { validate } from "./api/jwt-utils.js";
 const bellAuthOptions = {
   provider: "github",
   password: "github-encryption-password-secure",
-  clientId: "c40b3e855268f728bbb2",
-  clientSecret: "6973b3202c653e2bd6814f84a6f6b1516c028bbf",
+  clientId: "2c7f0de70fcb15600e1f",
+  clientSecret: "66fdd40c4fb1441754b28368772e8b4e5cf5c33a",
   isSecure: false // needs to be true in production.
 };
 
