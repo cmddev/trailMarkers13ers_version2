@@ -21,7 +21,7 @@ const bellAuthOptions = {
   password: "github-encryption-password-secure",
   clientId: "2c7f0de70fcb15600e1f",
   clientSecret: "66fdd40c4fb1441754b28368772e8b4e5cf5c33a",
-  isSecure: false // needs to be true in production.
+  isSecure: true // needs to be true in production.
 };
 
 const __filename = fileURLToPath(import.meta.url);
