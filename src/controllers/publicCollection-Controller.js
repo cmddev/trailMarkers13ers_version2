@@ -21,7 +21,7 @@ export const publicCollectionController = {
 
   addPublicTrail: {
     validate: {
-      payload: publicTrailSpec,
+      payload: PublicTrailSpec,
       options: { abortEarly: false },
       failAction: function (request, h, error) {
         return h.view("publicCollection-view", { title: "Add Public Trail error", errors: error.details }).takeover().code(400);

@@ -11,12 +11,12 @@ const publicTrailSchema = new Schema({
   publicEffort: String,
   publicTrailRating: Number,
   publicReviewTrail: String,
-  publicImages: [
-    {
-      publicImg: String,
-      publicImgid: String,
-    },
-  ],
+  // publicImages: [
+  //   {
+  //     publicImg: String,
+  //     publicImgid: String,
+  //   },
+  // ],
   publicCollectionid: {
     type: Schema.Types.ObjectId,
     ref: "PublicCollection",

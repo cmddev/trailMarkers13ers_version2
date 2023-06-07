@@ -38,8 +38,6 @@ export const publicTrailController = {
       const newPublicTrail = {
         publicRange: String(request.payload.range),
         publicMountain: request.payload.mountain,
-        // latitude: Number(request.payload.latitude),
-        // longitude: Number(request.payload.longitude),
         publicDuration: Number(request.payload.duration),
         publicElevation: Number(reqeust.payload.elevation),
         publicCategory: request.payload.category,

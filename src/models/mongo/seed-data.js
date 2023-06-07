@@ -30,6 +30,13 @@ export const seedData = {
         userid: "->users.bart"
       }
     },
+    publicCollections: {
+      _model: "PublicCollection",
+      mozart: {
+        title: "Colorado Public Front Range Favourites",
+        userid: "->users.bart"
+      }
+    },
     trails: {
       _model : "Trail",
       trail_1 : {
@@ -65,5 +72,42 @@ export const seedData = {
         reviewTrail: "It was never ending",
         collectionid: "->collections.mozart"
       }
+    }, 
+    publicTrails: {
+      _model : "PublicTrail",
+      publicTrail_1 : {
+        publicRange: "Front Range",
+        publicMountain: "Massive",
+        publicDuration: 11,
+        publicElevation: 12000,
+        publicCateogry: "Class 1",
+        publicEffort: "Medium",
+        publicTrailRating: 2,
+        publicReviewTrail: "It was never ending",
+        publiccollectionid: "->publicCollections.mozart"
+      },
+      publicTrail_2 : {
+        publicRange: "Front Range",
+        publicMountain: "Massive",
+        publicDuration: 11,
+        publicElevation: 12000,
+        publicCateogry: "Class 1",
+        publicEffort: "Medium",
+        publicTrailRating: 2,
+        publicReviewTrail: "It was never ending",
+        publicCollectionid: "->publicCollections.mozart"
+      },
+      publicTrail_3 : {
+        publicRange: "Front Range",
+        publicMountain: "Massive",
+        publicDuration: 11,
+        publicElevation: 12000,
+        publicCateogry: "Class 1",
+        publicEffort: "Medium",
+        publicTrailRating: 2,
+        publicReviewTrail: "It was never ending",
+        publiccollectionid: "->publicCollections.mozart"
+      }
     }
   };
+

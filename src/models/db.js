@@ -17,6 +17,8 @@ export const db = {
   userStore: null,
   collectionStore: null,
   trailStore: null,
+  publicCollectionStore: null,
+  publicTrailStore: null,
 
   init(storeType) {
     switch (storeType) {

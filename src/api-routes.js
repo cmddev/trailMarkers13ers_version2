@@ -9,7 +9,8 @@ export const apiRoutes = [
   { method: "POST", path: "/api/users", config: userApi.create },
   { method: "DELETE", path: "/api/users", config: userApi.deleteAll },
   { method: "GET", path: "/api/users/{id}", config: userApi.findOne },
-  // { method: "POST", path: "/api/users/authenticate", config: userApi.authenticate },
+
+  { method: "POST", path: "/api/users/authenticate", config: userApi.authenticate },
 
   { method: "POST", path: "/api/collections", config: collectionApi.create },
   { method: "DELETE", path: "/api/collections", config: collectionApi.deleteAll },
@@ -39,5 +40,5 @@ export const apiRoutes = [
   // { method: "POST", path: "/api/publicTrails/{id}/uploadimage", config: publicTrailApi.uploadImage },
   // { method: "DELETE", path: "/api/publicTrails/{id}/deleteimage/{imgid}", config: publicTrailApi.deleteImage },
 
-  { method: "POST", path: "/api/users/authenticate", config: userApi.authenticate },
+
 ];
